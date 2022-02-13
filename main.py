@@ -1,7 +1,8 @@
 import datetime
 
 current_date = datetime.date.today()
-current_time = datetime.datetime.now() #gets date, exact time
+current_time = datetime.datetime.now()  # gets date, exact time
+release = 'release.txt'
 
 def welcome_prompt():
     print('''
@@ -11,9 +12,13 @@ def welcome_prompt():
 | |\  | (_) | ||  __/| | (_| |   <  __/ |  /  \ 
 |_| \_|\___/ \__\___||_|\__,_|_|\_\___|_| /_/\_\
 ''')
+    with open('release.txt') as f:
+        contents = f.read()
+        print( "(" + contents + ")")
     print("Welcome to NoteTakerX!")
     print("A Notetaker created by Rusi")
     print("Current Date: " + str(current_date))
+    input("Please Press Enter to continue: ")
 
 
 def take_note():
@@ -29,15 +34,21 @@ def take_note():
     Notes:
     
     ''')
-    save_file.write(text)# Writes the text, though it overwrites!
+    save_file.write(text)  # Writes the text, though it overwrites!
     save_file.close()
 
 
 def success_prompt():
     print("Note saving was successful! File was rewritten!")  # Doesn't actually do anything, just for looks!
     print(" ")
-
+def take_more_note():
+    answer = input("Would you like to take another note? (y/n): ")
+    if answer == "y":
+        take_note()
+    else:
+        print("Ok, no note taken!")
 
 welcome_prompt()
 take_note()
 success_prompt()
+take_more_note()
