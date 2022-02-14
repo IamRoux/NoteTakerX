@@ -1,4 +1,4 @@
-Date taken: 2022-02-13 06:21:48.224915
+Date taken: 2022-02-13 18:38:32.816152
     Notes:
     
-    NoteTakerX beta release!
+    NoteTakerX beta!
